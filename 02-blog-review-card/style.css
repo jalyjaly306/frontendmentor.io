@@ -1,0 +1,113 @@
+/* 1. Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Figtree', sans-serif;
+  background-color: hsl(47, 88%, 63%); /* Light yellow */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem;
+}
+
+/* 2. Card Container */
+.blog-card {
+  background-color: #ffffff;
+  max-width: 350px;
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+
+/* 3. Image Styling */
+.blog-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+.blog-card button {
+  background-color: hsl(47, 88%, 63%);
+  color: #121314;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 1rem 0;
+}
+
+.blog-card span {
+  color: #7d889e; /* Grayish blue */
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* 4. Text Content */
+.blog-card h1 {
+  color: hsl(47, 88%, 63%);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 1rem 0rem 0.5rem 0rem;
+}
+
+.blog-card p {
+  color: #7d889e; /* Grayish blue */
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0.5rem 0rem 0.5rem 0rem;
+}
+
+.blog-card div.author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  gap: 0.75rem;
+}
+
+.blog-card div.author img {
+    width: 30px;
+    height: 30px;
+    vertical-align: left;
+}
+.blog-card div.author span {
+  color: #121314; /* Grayish blue */
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+
+/* 5. Attribution Footer */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 1rem;
+  color: #7d889e;
+}
+
+.attribution a {
+  color: #3e52a3;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
