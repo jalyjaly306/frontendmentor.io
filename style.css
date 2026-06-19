@@ -1,0 +1,239 @@
+/* ==========================================================================
+   1. VARIABLES & RESET
+   ========================================================================== */
+:root {
+  /* Colors */
+  --color-white: hsl(0, 0%, 100%);
+  --color-eggshell: hsl(30, 54%, 90%);
+  --color-light-grey: hsl(30, 18%, 87%);
+  --color-wenge-brown: hsl(30, 10%, 34%);
+  --color-dark-charcoal: hsl(24, 5%, 18%);
+  --color-nutmeg: hsl(14, 45%, 36%);
+  --color-dark-raspberry: hsl(332, 51%, 25%);
+  --color-rose-white: hsl(330, 100%, 98%);
+
+  /* Typography */
+  --font-heading: 'Young Serif', serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-wenge-brown);
+  background-color: var(--color-eggshell);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* ==========================================================================
+   2. MAIN CARD LAYOUT
+   ========================================================================== */
+.omelette-recipe {
+  background-color: var(--color-white);
+  max-width: 736px;
+  width: 100%;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  display: block;
+}
+
+/* Typography Hierarchy */
+h1 {
+  font-family: var(--font-heading);
+  color: var(--color-dark-charcoal);
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  color: var(--color-nutmeg);
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+p {
+  margin-bottom: 32px;
+}
+
+/* ==========================================================================
+   3. SECTION STYLING
+   ========================================================================== */
+
+/* Preparation Time Box */
+h3 {
+  color: var(--color-dark-raspberry);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.omelette-recipe > h3 {
+  background-color: var(--color-rose-white);
+  padding: 24px 24px 0 24px;
+  margin-bottom: 0;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.omelette-recipe > h3 + ul {
+  background-color: var(--color-rose-white);
+  padding: 0 24px 24px 40px;
+  margin-bottom: 32px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  list-style-type: disc;
+}
+
+.omelette-recipe > h3 + ul li::marker {
+  color: var(--color-dark-raspberry);
+}
+
+.omelette-recipe > h3 + ul li {
+  margin-bottom: 12px;
+}
+
+.omelette-recipe > h3 + ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists (Ingredients & Instructions) */
+ul, ol {
+  margin-bottom: 32px;
+  padding-left: 24px;
+}
+
+li {
+  padding-left: 8px;
+  margin-bottom: 12px;
+}
+
+li strong {
+  color: var(--color-dark-charcoal);
+}
+
+ul li::marker {
+  color: var(--color-nutmeg);
+}
+
+ol li::marker {
+  color: var(--color-nutmeg);
+  font-weight: 700;
+}
+
+/* Divider Lines */
+hr, h2 {
+  border: none;
+}
+
+/* Separator styling mimicking Frontend Mentor design rules */
+.omelette-recipe > ul, 
+.omelette-recipe > ol {
+  border-bottom: 1px solid var(--color-light-grey);
+  padding-bottom: 32px;
+}
+
+/* ==========================================================================
+   4. NUTRITION TABLE
+   ========================================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+tr {
+  border-bottom: 1px solid var(--color-light-grey);
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
+th, td {
+  padding: 12px 24px;
+  text-align: left;
+}
+
+th {
+  font-weight: 400;
+  color: var(--color-wenge-brown);
+  width: 50%;
+}
+
+td {
+  font-weight: 700;
+  color: var(--color-nutmeg);
+}
+
+/* ==========================================================================
+   5. FOOTER / ATTRIBUTION
+   ========================================================================== */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 20px;
+  color: var(--color-wenge-brown);
+}
+
+.attribution a {
+  color: var(--color-nutmeg);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN (MOBILE)
+   ========================================================================== */
+@media (max-width: 600px) {
+  body {
+    padding: 0;
+    background-color: var(--color-white);
+  }
+
+  .omelette-recipe {
+    padding: 0 24px 24px 24px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .hero-image {
+    width: calc(100% + 48px);
+    margin-left: -24px;
+    margin-right: -24px;
+    border-radius: 0;
+    margin-bottom: 32px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
