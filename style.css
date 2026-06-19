@@ -224,7 +224,6 @@ td {
     border-radius: 0;
     box-shadow: none;
   }
-
   .hero-image {
     width: calc(100% + 48px);
     margin-left: -24px;
