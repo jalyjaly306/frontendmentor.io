@@ -1,0 +1,1 @@
+# Frontend Mentor - Product preview card component using html, css
