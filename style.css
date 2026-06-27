@@ -1,0 +1,237 @@
+/* ==========================================
+   1. Reset & Global Styles
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 13px;
+    background-color: #edf2f8; /* Light grayish blue background */
+    color: #48556a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* ==========================================
+   2. Page Header / Intro Section
+   ========================================== */
+.main-container {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.main-container h1 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #7541c8; /* Deep purple accent */
+    margin-bottom: 8px;
+}
+ 
+.main-container h2 {
+    font-size: 2.5rem;
+    color: #19202c;
+    margin-bottom: 12px;
+}
+
+.main-container p {
+    font-size: 1.1rem;
+    color: #48556a;
+}
+
+/* ==========================================
+   3. The Grid Layout
+   ========================================== */
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1110px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+/* ==========================================
+   4. Base Card & Profile Component Style
+   ========================================== */
+.card {
+    border-radius: 8px;
+    padding: 32px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Layout for user image, name, and status */
+.card > img:first-of-type {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Clean text flow adjustment around the floated profile image */
+.card h1 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* "Verified Graduate" text */
+.card p:nth-of-type(1) {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    margin-bottom: 18px;
+}
+
+/* Clearfix behavior to separate profile metadata from card text content */
+.card p:nth-of-type(1)::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Lead quote headline hook */
+.card p:nth-of-type(2) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    clear: both;
+}
+
+/* Main long testimonial block body */
+.card span {
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.7;
+}
+
+/* Adding the classic soft background quote icon to Daniel's card */
+.card:nth-child(1)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 15%;
+    width: 104px;
+    height: 102px;
+    background-image: url('./images/bg-pattern-quotation.svg');
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    z-index: 0;
+}
+/* Ensure text layer floats above background pattern layer */
+.card:nth-child(1) * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================
+   5. Grid Mapping & Themes
+   ========================================== */
+
+/* Card 1: Daniel (Purple, wide) */
+.card:nth-child(1) {
+    grid-column: span 2;
+    background-color: #7541c8;
+    color: #ffffff;
+}
+
+/* Card 2: Jonathan (Dark Gray) */
+.card:nth-child(2) {
+    background-color: #48556a;
+    color: #ffffff;
+}
+.card:nth-child(2) > img:first-of-type {
+    border: none;
+}
+
+/* Card 3: Jeanette (White, clean) */
+.card:nth-child(3) {
+    background-color: #ffffff;
+    color: #48556a;
+}
+.card:nth-child(3) > img:first-of-type {
+    border: none;
+}
+
+/* Card 4: Patrick (Dark Black/Blue, wide) */
+.card:nth-child(4) {
+    grid-column: span 2;
+    background-color: #19202c;
+    color: #ffffff;
+}
+.card:nth-child(4) > img:first-of-type {
+    border: 2px solid #7541c8;
+}
+
+/* Card 5: Kira (White, tall right column) */
+.card:nth-child(5) {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+    background-color: #ffffff;
+    color: #48556a;
+}
+.card:nth-child(5) > img:first-of-type {
+    border: none;
+}
+
+/* Light background text enhancement adjustments for readability */
+.card:nth-child(1) p:nth-of-type(2),
+.card:nth-child(2) p:nth-of-type(2),
+.card:nth-child(4) p:nth-of-type(2) {
+    color: #ffffff;
+}
+
+/* ==========================================
+   6. Footer / Attribution Layout
+   ========================================== */
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+.attribution a {
+    color: #3e52a3;
+    text-decoration: none;
+    font-weight: bold;
+}
+.attribution a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================
+   7. Responsive Breakdown (Tablet & Mobile)
+   ========================================== */
+@media (max-width: 950px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .card:nth-child(5) {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .card:nth-child(1),
+    .card:nth-child(4),
+    .card:nth-child(5) {
+        grid-column: span 1;
+    }
+}
