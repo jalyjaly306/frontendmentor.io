@@ -1,0 +1,243 @@
+/* --- Reset & Global Styles --- */
+:root {
+  --color-primary-tomato: hsl(4, 100%, 67%);
+  --color-dark-slate-grey: hsl(234, 29%, 20%);
+  --color-charcoal-grey: hsl(235, 18%, 26%);
+  --color-grey: hsl(231, 7%, 60%);
+  --color-white: hsl(0, 0%, 100%);
+  
+  --font-family: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 16px;
+  background-color: var(--color-charcoal-grey);
+  color: var(--color-dark-slate-grey);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Layout Component (Card) --- */
+.container {
+  background-color: var(--color-white);
+  width: 100%;
+  max-width: 375px; /* Mobile first */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Image Styling --- */
+.illustration-image {
+  width: 100%;
+  height: auto;
+  content: url('./images/illustration-sign-up-mobile.svg'); /* Default mobile image */
+}
+
+/* --- Content Styling --- */
+.content {
+  padding: 40px 24px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 1.5;
+  margin-bottom: 24px;
+  color: var(--color-charcoal-grey);
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+ul li {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* Custom list checkmark */
+ul li::before {
+  content: url('./images/icon-list.svg');
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+/* Container to push heading left and error text right */
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.form-header h2 {
+  margin-bottom: 0; /* Override previous margin */
+}
+
+/* Error message styling */
+.error-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary-tomato);
+  display: none; /* Hidden by default */
+}
+
+/* When the input has the .error class applied via JS */
+input[type="email"].error {
+  border-color: var(--color-primary-tomato);
+  background-color: hsla(4, 100%, 67%, 0.1); /* Light tomato tint */
+  color: var(--color-primary-tomato);
+}
+
+/* --- Form Elements --- */
+h2 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+#signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+input[type="email"] {
+  width: 100%;
+  padding: 16px 24px;
+  border: 1px solid var(--color-grey);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="email"]:focus {
+  border-color: var(--color-dark-slate-grey);
+}
+
+/* Handle invalid input state (optional, triggered via JS class or :invalid after submit) */
+input.error {
+  border-color: var(--color-primary-tomato);
+  background-color: rgba(255, 98, 87, 0.15);
+  color: var(--color-primary-tomato);
+}
+
+button {
+  background-color: var(--color-dark-slate-grey);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  padding: 18px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #ff527b, var(--color-primary-tomato));
+  box-shadow: 0 10px 20px rgba(255, 98, 87, 0.4);
+}
+
+/* --- Success State Markup Styles --- */
+/* Assuming success.html uses class="success-container" */
+.success-container {
+  background-color: var(--color-white);
+  width: 100%;
+  max-width: 375px;
+  min-height: 100vh; /* Takes full screen on mobile */
+  padding: 140px 24px 40px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.success-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 40px;
+}
+
+.success-container h1 {
+  line-height: 1;
+}
+
+.success-container button {
+  width: 100%;
+}
+
+/* --- Footer Attribution --- */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: var(--color-grey);
+  margin-top: 20px;
+}
+
+.attribution a {
+  color: var(--color-primary-tomato);
+}
+
+/* --- Desktop Layout (MediaQuery) --- */
+@media (min-width: 768px) {
+  .container {
+    max-width: 928px;
+    flex-direction: row-reverse; /* Puts image on the right */
+    padding: 24px;
+    border-radius: 36px;
+  }
+
+  .illustration-image {
+    content: url('./images/illustration-sign-up-desktop.svg'); /* Swaps to desktop image */
+    width: 400px;
+    height: auto;
+  }
+
+  .content {
+    padding: 56px 40px 56px 40px;
+    flex: 1;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  /* Success Card Desktop tweaks */
+  .success-container {
+    max-width: 504px;
+    min-height: auto;
+    border-radius: 36px;
+    padding: 64px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .success-container button {
+    margin-top: 40px;
+  }
+}

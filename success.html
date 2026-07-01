@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Successful</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="success-container">
+    <div class="success-content">
+      <img src="./images/icon-success.svg" alt="Success Checkmark" class="success-icon">
+      <h1>Thanks for subscribing!</h1>
+      <p>A confirmation email has been sent to <strong id="user-email" >ash@loremcompany.com</strong>. 
+         Please open it and click the button inside to confirm your subscription.
+      </p>
+    </div>
+    <button id="dismiss-btn">Dismiss message</button>
+  </div>
+    <a href="index.html">Back to Home</a>
+  </div>
+
+  <script>
+  // 1. Grab the query parameters from the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const userEmail = urlParams.get('email');
+
+  // 2. If an email exists in the URL, inject it into the <strong> tag
+  if (userEmail) {
+    document.getElementById('user-email').textContent = userEmail;
+  }
+
+  // 3. Optional: Make the dismiss button take them back to the form
+  document.getElementById('dismiss-btn').addEventListener('click', () => {
+    window.location.href = 'index.html';
+  });
+  </script>
+
+</body>
+</html>
